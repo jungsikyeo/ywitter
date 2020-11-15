@@ -1,17 +1,11 @@
-<<<<<<< HEAD
 import { authService, firebaseInstance } from "fbase";
-=======
->>>>>>> a8941ebaf35da6dec5083bb81ea524226f5e2ec5
 import React, { useState } from "react";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-<<<<<<< HEAD
   const [newAccount, setNewAccount] = useState(true);
   const [error, setError] = useState("");
-=======
->>>>>>> a8941ebaf35da6dec5083bb81ea524226f5e2ec5
   const onChange = (event) => {
     const {
       target: { name, value },
@@ -22,7 +16,6 @@ const Auth = () => {
       setPassword(value);
     }
   };
-<<<<<<< HEAD
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -54,11 +47,6 @@ const Auth = () => {
     const data = await authService.signInWithPopup(provider); 
     console.log(data);
   }
-=======
-  const onSubmit = (event) => {
-    event.preventDefault();
-  };
->>>>>>> a8941ebaf35da6dec5083bb81ea524226f5e2ec5
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -78,7 +66,6 @@ const Auth = () => {
           value={password}
           onChange={onChange}
         />
-<<<<<<< HEAD
         <input type="submit" value={newAccount ? "Create Account" : "Log In"} />
         {error}
       </form>
@@ -86,13 +73,6 @@ const Auth = () => {
       <div>
         <button onClick={onSocialClick} name="google">Continue with Google</button>
         <button onClick={onSocialClick} name="github">Continue with Github</button>
-=======
-        <input type="submit" value="Log In" />
-      </form>
-      <div>
-        <button>Continue with Google</button>
-        <button>Continue with Github</button>
->>>>>>> a8941ebaf35da6dec5083bb81ea524226f5e2ec5
       </div>
     </div>
   );
