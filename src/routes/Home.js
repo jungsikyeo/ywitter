@@ -20,13 +20,16 @@ const Home = ({ userObj }) => {
     event.preventDefault();
     const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
     const response = await fileRef.putString(attachment, "data_url");
-    console.log(response);
-    /*await dbService.collection("yweets").add({
+    const attachmentUrl = await response.ref.getDownloadURL();
+    const yweetObj = {
       text: yweet,
       createdAt: Date.now(),
       creatorId: userObj.uid,
-    });
-    setYweet("");*/
+      attachmentUrl
+    }
+    await dbService.collection("yweets").add(yweetObj);
+    setYweet("");
+    setAttachment("");
   };
   const onChange = (event) => {
     const {
