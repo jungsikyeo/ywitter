@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { dbService, storageService } from "../fbase";
+import { dbService } from "../fbase";
 import Yweet from "../components/Yweet";
 import YweetFactory from "../components/YweetFactory";
 

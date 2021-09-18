@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { authService, dbService } from "../fbase";
+import { authService } from "../fbase";
 import { useHistory } from "react-router-dom";
 
-export default ({ refreshUser, userObj }) => {
+const Profile = ({ refreshUser, userObj }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
   const onLogOutClick = () => {
@@ -23,13 +23,6 @@ export default ({ refreshUser, userObj }) => {
       });
       refreshUser();
     }
-  };
-  const getMyYweets = async () => {
-    const yweets = await dbService
-      .collection("yweets")
-      .where("creatorId", "==", userObj.uid)
-      .orderBy("createdAt", "desc")
-      .get();
   };
   return (
     <div className="container">
@@ -57,3 +50,5 @@ export default ({ refreshUser, userObj }) => {
     </div>
   );
 };
+
+export default Profile;
